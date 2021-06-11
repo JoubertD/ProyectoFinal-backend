@@ -1,17 +1,12 @@
 package resources.pojos;
 
-public class UserPOJO {
+public class UserApp {
 
     private String username;
-
     private String password;
-
     private String role;
 
-    public UserPOJO() {
-    }
-
-    public UserPOJO(String username, String password, String role) {
+    public UserApp(String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;

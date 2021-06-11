@@ -1,6 +1,6 @@
 package resources;
 
-import resources.pojos.Author;
+import resources.pojos.UserApp;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -11,10 +11,10 @@ public class AuthorResource {
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public Response modify(@PathParam("id") Integer id, Author author) {
+    public Response modify(@PathParam("id") Integer id, UserApp userApp) {
 
         return Response.ok()
-                .entity(author)
+                .entity(userApp)
                 .build();
     }
 
