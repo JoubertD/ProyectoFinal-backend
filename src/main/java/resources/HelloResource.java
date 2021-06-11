@@ -1,8 +1,5 @@
 package resources;
 
-import resources.pojos.Employee;
-import resources.pojos.Notification;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;

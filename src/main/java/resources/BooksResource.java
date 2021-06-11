@@ -1,6 +1,6 @@
 package resources;
 
-import resources.pojos.Book;
+import resources.pojos.Official;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,24 +15,24 @@ public class BooksResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response list(@PathParam("authorId") Integer authorId) {
 
-        List<Book> books = new ArrayList<Book>();
-        books.add(new Book(1, "Cien años de soledad", "1234", authorId));
-        books.add(new Book(2, "El coronel no tiene quien le escriba", "1234", authorId));
+        List<Official> officials = new ArrayList<Official>();
+        officials.add(new Official(1, "Cien años de soledad", "1234", authorId));
+        officials.add(new Official(2, "El coronel no tiene quien le escriba", "1234", authorId));
 
         return Response.ok()
-                .entity(books)
+                .entity(officials)
                 .build();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(@PathParam("authorId") Integer authorId, Book book) {
+    public Response create(@PathParam("authorId") Integer authorId, Official official) {
 
-        book.setBookId(3);
+        official.setBookId(3);
 
         return Response.status(Response.Status.CREATED)
-                .entity(book)
+                .entity(official)
                 .build();
     }
 

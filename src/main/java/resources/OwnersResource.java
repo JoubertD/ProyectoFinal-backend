@@ -1,8 +1,5 @@
 package resources;
 
-import resources.pojos.OwnerPOJO;
-import resources.pojos.PetPOJO;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;

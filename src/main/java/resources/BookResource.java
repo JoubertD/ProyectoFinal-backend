@@ -1,6 +1,6 @@
 package resources;
 
-import resources.pojos.Book;
+import resources.pojos.Official;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -11,10 +11,10 @@ public class BookResource {
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public Response modify(@PathParam("authorId") Integer authorId, @PathParam("id") Integer id, Book book) {
+    public Response modify(@PathParam("authorId") Integer authorId, @PathParam("id") Integer id, Official official) {
 
         return Response.ok()
-                .entity(book)
+                .entity(official)
                 .build();
     }
 
