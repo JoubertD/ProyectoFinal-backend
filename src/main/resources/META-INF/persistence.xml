@@ -6,7 +6,7 @@
     <persistence-unit name="tutorial" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/PostgresDS</jta-data-source>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Pet</class>
+        <class>edu.unbosque.ProyectoFinal_backend.jpa.entities.Pet</class>
         <class>edu.unbosque.JPATutorial.jpa.entities.Book</class>
         <class>edu.unbosque.JPATutorial.jpa.entities.Edition</class>
         <class>edu.unbosque.JPATutorial.jpa.entities.Library</class>

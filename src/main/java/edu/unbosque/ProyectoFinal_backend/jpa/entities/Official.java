@@ -1,4 +1,4 @@
-package edu.unbosque.JPATutorial.jpa.entities;
+package edu.unbosque.ProyectoFinal_backend.jpa.entities;
 
 import javax.persistence.*;
 
