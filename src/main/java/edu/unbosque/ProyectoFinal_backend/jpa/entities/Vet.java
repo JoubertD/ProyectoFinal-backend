@@ -1,20 +1,21 @@
 package edu.unbosque.ProyectoFinal_backend.jpa.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="Vet")
-public class Vet {
-    @OneToMany(mappedBy = "vet", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+public class Vet implements Serializable {
+    @OneToMany(mappedBy = "vet", cascade = CascadeType.ALL)
     List<Visit> visits = new ArrayList<>();
 
 
     @OneToOne(cascade =CascadeType.ALL)
     @Id
     @JoinColumn(name="username")
-    UserApp userapp;
+    UserApp user;
 
     @Column(name="address")
     String address;
@@ -23,7 +24,7 @@ public class Vet {
     String neighbothood;
 
     public Vet(UserApp userapp, String address, String neighbothood) {
-        this.userapp = userapp;
+        this.user = userapp;
         this.address = address;
         this.neighbothood = neighbothood;
     }

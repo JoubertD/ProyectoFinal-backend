@@ -1,21 +1,22 @@
 package edu.unbosque.ProyectoFinal_backend.jpa.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="Official")
 
-public class Official {
+public class Official implements Serializable {
     @OneToOne(cascade =CascadeType.ALL)
     @Id
     @JoinColumn(name="username")
-    UserApp userapp;
+    UserApp user;
 
     @Column(name="name")
     String name;
 
     public Official(UserApp userapp, String name) {
-        this.userapp = userapp;
+        this.user = userapp;
         this.name = name;
     }
 

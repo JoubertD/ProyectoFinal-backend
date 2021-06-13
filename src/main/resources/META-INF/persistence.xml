@@ -6,22 +6,13 @@
     <persistence-unit name="tutorial" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/PostgresDS</jta-data-source>
-<<<<<<< HEAD
         <class>edu.unbosque.ProyectoFinal_backend.jpa.entities.Pet</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Book</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Edition</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Library</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Rent</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Customer</class>
-=======
-        <class>edu.unbosque.JPATutorial.jpa.entities.Pet</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Owner</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.UserApp</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Vet</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Visit</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.Official</class>
-        <class>edu.unbosque.JPATutorial.jpa.entities.PetCase</class>
->>>>>>> 21999602adf1bd3127125659dd76a2896e64dd3b
+        <class>edu.unbosque.ProyectoFinal_backend.jpa.entities.Owner</class>
+        <class>edu.unbosque.ProyectoFinal_backend.jpa.entities.UserApp</class>
+        <class>edu.unbosque.ProyectoFinal_backend.jpa.entities.Vet</class>
+        <class>edu.unbosque.ProyectoFinal_backend.jpa.entities.Visit</class>
+        <class>edu.unbosque.ProyectoFinal_backend.jpa.entities.Official</class>
+        <class>edu.unbosque.ProyectoFinal_backend.jpa.entities.PetCase</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect" />

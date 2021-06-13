@@ -12,6 +12,9 @@ public class UserAppPOJO {
         this.role = role;
     }
 
+    public UserAppPOJO() {
+    }
+
     public String getUsername() {
         return username;
     }

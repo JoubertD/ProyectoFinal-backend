@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface OwnerRepository {
 
     Optional<Owner> save(Owner owner);
+
+    Optional<Owner> update(Integer ownerId, String address, String neighbourhood);
 }

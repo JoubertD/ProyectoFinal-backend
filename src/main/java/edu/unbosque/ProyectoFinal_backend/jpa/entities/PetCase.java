@@ -3,13 +3,14 @@ package edu.unbosque.ProyectoFinal_backend.jpa.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Owner")
+@Table(name="PetCase")
 public class PetCase {
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "pet_id")
     Pet pet;
 
     @Id
+    @GeneratedValue
     @Column(name="case_id")
     int Case_id;
 
@@ -22,15 +23,14 @@ public class PetCase {
     @Column(name="description")
     String description;
 
-    @Column(name="pet_id")
-    int pet_id;
 
-    public PetCase(int case_id, String created_at, String type, String description, int pet_id) {
+
+    public PetCase(int case_id, String created_at, String type, String description) {
         Case_id = case_id;
         this.created_at = created_at;
         this.type = type;
         this.description = description;
-        this.pet_id = pet_id;
+
     }
 
     public PetCase() {

@@ -27,4 +27,20 @@ public class OwnerRepositoryImpl implements OwnerRepository {
         }
         return Optional.empty();
     }
+
+    @Override
+    public Optional<Owner> update(Integer ownerId, String address, String neighbourhood) {
+
+        try {
+            Owner a = entityManager.find(Owner.class, ownerId);
+            entityManager.getTransaction().begin();
+            a.setAddress(address);
+            a.setNeighborhood(neighbourhood);
+            entityManager.getTransaction().commit();
+            return Optional.of(a);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
 }

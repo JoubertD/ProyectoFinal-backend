@@ -7,44 +7,40 @@ import java.util.List;
 @Entity
 @Table(name="Pet")
 public class Pet {
-    @OneToMany(mappedBy="pet",fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-    List<PetCase> cases = new ArrayList<>();
+    @OneToMany(mappedBy="pet", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<PetCase> cases = new ArrayList<>();
 
-    @OneToMany(mappedBy="pet",fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-    List<Visit> visits = new ArrayList<>();
+    @OneToMany(mappedBy="pet", cascade = CascadeType.ALL)
+    private List<Visit> visits = new ArrayList<>();
 
-
-
-
-
-    @ManyToOne()
-    @JoinColumn(name = "owner_id")
-    Owner owner;
+    @ManyToOne
+    @JoinColumn(name = "person_id",referencedColumnName = "person_id")
+    private Owner owner;
 
     @Id
+    @GeneratedValue
     @Column(name="pet_id")
-    int pet_id;
+    private int pet_id;
 
     @Column(name="microschip")
-    String microschip;
+    private String microschip;
 
     @Column(name="species")
-    String species;
+    private String species;
 
     @Column(name="race")
-    String race;
+    private String race;
 
     @Column(name="size")
-    String size;
+    private String size;
 
     @Column(name="sex")
-    String sex;
+    private String sex;
 
     @Column(name="picture")
-    String picture;
+    private String picture;
 
-    @Column(name="owner_id")
-    int owner_id;
+
 
     public Pet(int pet_id, String microschip, String species, String race, String size, String sex, String picture, int owner_id) {
         this.pet_id = pet_id;
@@ -54,7 +50,7 @@ public class Pet {
         this.size = size;
         this.sex = sex;
         this.picture = picture;
-        this.owner_id = owner_id;
+
     }
 
     public Pet() {
