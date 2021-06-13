@@ -1,6 +1,6 @@
 package resources.pojos;
 
-public class Pet {
+public class PetPOJO {
 
     private String microchip;
     private String name;
@@ -10,7 +10,7 @@ public class Pet {
     private String sex;
     private String picture;
 
-    public Pet(String chip,String nombre, String especie, String raza, String tamaño, String sexo, String foto){
+    public PetPOJO(String chip, String nombre, String especie, String raza, String tamaño, String sexo, String foto){
         microchip = chip;
         name = nombre;
         species = especie;

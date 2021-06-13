@@ -1,6 +1,6 @@
 package resources.pojos;
 
-public class Visit {
+public class VisitPOJO {
 
     private String created_at;
     private String type;
@@ -8,7 +8,7 @@ public class Visit {
     private String vet_id;
     private String pet_id;
 
-    public Visit(String fechacreacion,String tipo,String descripcion){
+    public VisitPOJO(String fechacreacion, String tipo, String descripcion){
         created_at = fechacreacion;
         type = tipo;
         description = descripcion;

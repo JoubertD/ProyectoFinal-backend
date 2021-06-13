@@ -1,16 +1,16 @@
 package resources.pojos;
 
-public class Official {
+public class OfficialPOJO {
 
     private Integer bookId;
     private String title;
     private String isbn;
     private Integer authorId;
 
-    public Official() {
+    public OfficialPOJO() {
     }
 
-    public Official(Integer bookId, String title, String isbn, Integer authorId) {
+    public OfficialPOJO(Integer bookId, String title, String isbn, Integer authorId) {
         this.bookId = bookId;
         this.title = title;
         this.isbn = isbn;

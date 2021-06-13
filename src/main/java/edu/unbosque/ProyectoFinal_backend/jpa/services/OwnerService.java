@@ -1,9 +1,9 @@
 package edu.unbosque.ProyectoFinal_backend.jpa.services;
 
-import edu.unbosque.Auth2Tutorial.jpa.entities.Owner;
-import edu.unbosque.Auth2Tutorial.jpa.repositories.OwnerRepository;
-import edu.unbosque.Auth2Tutorial.jpa.repositories.OwnerRepositoryImpl;
-import edu.unbosque.Auth2Tutorial.resources.pojos.OwnerPOJO;
+
+import edu.unbosque.ProyectoFinal_backend.jpa.Repositories.OwnerRepository;
+import edu.unbosque.ProyectoFinal_backend.jpa.Repositories.OwnerRepositoryImpl;
+import resources.pojos.OwnerPOJO;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -23,9 +23,9 @@ public class OwnerService {
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
 
-        Owner owner = new Owner(ownerPOJO.getUsername(), ownerPOJO.getPassword(), ownerPOJO.getEmail(),
-                ownerPOJO.getPersonId(), ownerPOJO.getName(), ownerPOJO.getAddress(), ownerPOJO.getNeighborhood());
-        Optional<Owner> persistedOwner = ownerRepository.save(owner);
+        OwnerPOJO owner = new OwnerPOJO(ownerPOJO.getEmail(), ownerPOJO.getPassword(), ownerPOJO.getEmail(),
+                ownerPOJO.getPerson_id(), ownerPOJO.getName(), ownerPOJO.getAddress(), ownerPOJO.getNeighborhood());
+        Optional<OwnerPOJO> persistedOwner = ownerRepository.save(owner);
 
         entityManager.close();
         entityManagerFactory.close();

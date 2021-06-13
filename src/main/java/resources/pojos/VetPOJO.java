@@ -1,24 +1,16 @@
 package resources.pojos;
 
-public class Owner {
-    private String person_id;
+public class VetPOJO {
+
     private String name;
     private String address;
     private String neighborhood;
-    public Owner(String persona,String nombre,String adres, String neighborhoo){
 
-        person_id = persona;
-        name = nombre;
-        address = adres;
-        neighborhood = neighborhoo;
-    }
+    public VetPOJO(String name, String address, String neighborhood){
+        this.name = name;
+        this.address = address;
+        this.neighborhood = neighborhood;
 
-    public String getPerson_id() {
-        return person_id;
-    }
-
-    public void setPerson_id(String person_id) {
-        this.person_id = person_id;
     }
 
     public String getName() {
