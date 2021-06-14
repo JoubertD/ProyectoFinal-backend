@@ -4,22 +4,24 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Entity
 @Table(name="Owner")
-
+@PrimaryKeyJoinColumn
 public class Owner implements Serializable {
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-    List<Pet> pets = new ArrayList<Pet>();
+
 
     @Id
     @OneToOne(cascade =CascadeType.ALL)
     @JoinColumn(name="username")
     UserApp user;
 
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pet> pets;
 
-    @GeneratedValue
-    @Column(name="person_id", nullable = false)
+
+    @Column(name="person_id", unique = true)
     Integer person_id;
 
     @Column(name="name")
@@ -36,18 +38,12 @@ public class Owner implements Serializable {
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
+        person_id = new Random().nextInt(1000);
     }
 
     public Owner() {
     }
 
-    public List<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(List<Pet> pets) {
-        this.pets = pets;
-    }
 
     public UserApp getUserapp() {
         return user;

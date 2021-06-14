@@ -39,20 +39,20 @@ public class OwnerService {
 
     }
 
-    public Optional<OwnerPOJO> updateOwner(int ownerId,String address, String neighbourhood) {
+    public Optional<Owner> updateOwner(String username,String address, String neighbourhood) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
 
 
-        Optional<Owner> persistedOwner = ownerRepository.update(ownerId, address, neighbourhood);
+        Optional<Owner> persistedOwner = ownerRepository.update(username, address, neighbourhood);
 
         entityManager.close();
         entityManagerFactory.close();
 
         if (persistedOwner.isPresent()) {
-            return Optional.of(new OwnerPOJO());
+            return Optional.of(new Owner());
         } else {
             return Optional.empty();
         }

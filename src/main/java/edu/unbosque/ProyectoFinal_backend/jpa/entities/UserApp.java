@@ -3,6 +3,7 @@ package edu.unbosque.ProyectoFinal_backend.jpa.entities;
 import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="UserApp")
 
 public class UserApp {
@@ -17,7 +18,6 @@ public class UserApp {
 
     @Id
     @Column(name="username")
-
      String username;
 
     @Column(name="password")

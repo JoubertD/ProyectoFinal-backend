@@ -29,10 +29,10 @@ public class OwnerRepositoryImpl implements OwnerRepository {
     }
 
     @Override
-    public Optional<Owner> update(Integer ownerId, String address, String neighbourhood) {
+    public Optional<Owner> update(String username, String address, String neighbourhood) {
 
         try {
-            Owner a = entityManager.find(Owner.class, ownerId);
+            Owner a = entityManager.find(Owner.class, username);
             entityManager.getTransaction().begin();
             a.setAddress(address);
             a.setNeighborhood(neighbourhood);

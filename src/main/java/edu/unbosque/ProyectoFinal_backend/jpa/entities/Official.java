@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="Official")
-
+@PrimaryKeyJoinColumn
 public class Official implements Serializable {
     @OneToOne(cascade =CascadeType.ALL)
     @Id

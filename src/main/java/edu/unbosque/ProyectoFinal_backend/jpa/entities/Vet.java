@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name="Vet")
+@PrimaryKeyJoinColumn
 public class Vet implements Serializable {
     @OneToMany(mappedBy = "vet", cascade = CascadeType.ALL)
     List<Visit> visits = new ArrayList<>();
@@ -21,14 +22,59 @@ public class Vet implements Serializable {
     String address;
 
     @Column(name="neighbothood")
-    String neighbothood;
+    String neighborhood;
 
-    public Vet(UserApp userapp, String address, String neighbothood) {
-        this.user = userapp;
+    @Column(name="name")
+    String name;
+
+    public List<Visit> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(List<Visit> visits) {
+        this.visits = visits;
+    }
+
+    public UserApp getUser() {
+        return user;
+    }
+
+    public void setUser(UserApp user) {
+        this.user = user;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
         this.address = address;
-        this.neighbothood = neighbothood;
+    }
+
+    public String getNeighborhood() {
+        return neighborhood;
+    }
+
+    public void setNeighborhood(String neighbothood) {
+        this.neighborhood = neighbothood;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Vet() {
+    }
+
+    public Vet( UserApp user, String address, String neighborhood, String name) {
+
+        this.user = user;
+        this.address = address;
+        this.neighborhood = neighborhood;
+        this.name = name;
     }
 }

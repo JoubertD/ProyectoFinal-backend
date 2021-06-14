@@ -10,5 +10,5 @@ public interface OwnerRepository {
 
     Optional<Owner> save(Owner owner);
 
-    Optional<Owner> update(Integer ownerId, String address, String neighbourhood);
+    Optional<Owner> update(String username, String address, String neighbourhood);
 }

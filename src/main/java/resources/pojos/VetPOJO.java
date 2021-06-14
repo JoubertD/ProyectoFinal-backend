@@ -13,6 +13,9 @@ public class VetPOJO {
 
     }
 
+    public VetPOJO() {
+    }
+
     public String getName() {
         return name;
     }

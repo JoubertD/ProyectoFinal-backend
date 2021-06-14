@@ -44,6 +44,28 @@ public class UserAppService {
 
     }
 
+    public String getUsers( String username) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        // Getting credentials from the database
+        userAppRepository = new UserAppRepositoryImpl(entityManager);
+        Optional<UserApp> user = userAppRepository.findByUsername(username);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        // Validating if credentials provided by the user are valid
+        // If success, return the user role
+        if (user.isPresent()) {
+            return "present";
+        }
+
+        return "";
+
+    }
+
     public UserApp getUser( String username, String password ) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
