@@ -2,6 +2,7 @@ package edu.unbosque.ProyectoFinal_backend.jpa.Repositories;
 
 
 
+import edu.unbosque.ProyectoFinal_backend.jpa.entities.Owner;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.Pet;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.PetCase;
 
@@ -18,6 +19,7 @@ public class PetCaseRepositoryImpl implements PetCaseRepository {
 
     @Override
     public Optional<PetCase> save(PetCase petCase) {
+
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(petCase);

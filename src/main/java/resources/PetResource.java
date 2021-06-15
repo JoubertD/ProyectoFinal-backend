@@ -1,26 +1,35 @@
-//package resources;
-//
-//import javax.ws.rs.*;
-//import javax.ws.rs.core.MediaType;
-//import javax.ws.rs.core.Response;
-//
-//@Path("/owners/{personId}/pets/{id}")
-//public class PetResource {
-//
-//    @PUT
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response modify(@PathParam("personId") Integer personId, @PathParam("id") Integer id, PetPOJO pet) {
-//
-//        return Response.ok()
-//                .entity(pet)
-//                .build();
-//    }
-//
-//    @DELETE
-//    public Response delete(@PathParam("personId") Integer personId, @PathParam("id") Integer id) {
-//
-//        return Response.noContent()
-//                .build();
-//    }
-//
-//}
+package resources;
+
+import edu.unbosque.ProyectoFinal_backend.jpa.services.PetService;
+import resources.pojos.PetPOJO;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.Optional;
+
+@Path("app/{username}/owners/pets/{id}")
+public class PetResource {
+
+    @PUT
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response modify(@PathParam("username") String username, @PathParam("id") Integer id,
+                           @QueryParam("microchip") String microchip,
+                           @QueryParam("name") String name ,
+                           @QueryParam("specie") String specie,
+                           @QueryParam("race") String race,
+                           @QueryParam("size") String size,
+                           @QueryParam("sex") String sex) {
+
+        PetService ps = new PetService();
+        Optional<PetPOJO> p = ps.updatePet( id,microchip, name , specie, race, size, sex);
+
+
+
+        return Response.ok()
+                .entity("Pet was updated")
+                .build();
+    }
+
+
+}

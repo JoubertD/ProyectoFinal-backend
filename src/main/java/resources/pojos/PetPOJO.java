@@ -20,6 +20,9 @@ public class PetPOJO {
         picture = foto;
     }
 
+    public PetPOJO() {
+    }
+
     public String getMicrochip() {
         return microchip;
     }

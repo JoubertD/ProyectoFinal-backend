@@ -39,7 +39,7 @@ public class VetService {
 
     }
 
-    public Optional<VetPOJO> updateVet(String username,String address, String neighbourhood) {
+    public Optional<Vet> updateVet(String username,String address, String neighbourhood) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -52,7 +52,7 @@ public class VetService {
         entityManagerFactory.close();
 
         if (updatedVet.isPresent()) {
-            return Optional.of(new VetPOJO());
+            return Optional.of(new Vet());
         } else {
             return Optional.empty();
         }

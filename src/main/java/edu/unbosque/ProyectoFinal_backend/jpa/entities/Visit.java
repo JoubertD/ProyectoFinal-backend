@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 public class Visit {
     @ManyToOne
-    @JoinColumn(name="pet_id")
+    @JoinColumn(name="username")
     Pet pet;
 
     @ManyToOne

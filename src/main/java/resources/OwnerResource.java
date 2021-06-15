@@ -19,7 +19,7 @@ public class OwnerResource {
 
         OwnerService o = new OwnerService();
 
-        System.out.println(username);
+
         Optional<Owner> owner = o.updateOwner(username, address, neighbourhood);
 
         if(owner.isPresent()){

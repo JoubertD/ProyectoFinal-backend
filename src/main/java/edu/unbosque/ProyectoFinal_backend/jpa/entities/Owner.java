@@ -84,4 +84,12 @@ public class Owner implements Serializable {
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
     }
+
+    public void addPet(Pet pet){
+        pets.add(pet);
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
 }
