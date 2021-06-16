@@ -3,7 +3,6 @@ package edu.unbosque.ProyectoFinal_backend.jpa.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
 @Entity
 @Table(name="Pet")
 
@@ -41,6 +40,9 @@ public class Pet {
     @Column(name="picture")
     private String picture;
 
+    @Column(name = "name")
+    private String name;
+
 
     public Pet() {
     }
@@ -56,13 +58,14 @@ public class Pet {
 
     }
 
-    public Pet(String microchip, String species, String race, String size, String sex, String picture) {
+    public Pet(String microchip, String species, String race, String size, String sex, String picture, String name) {
         this.microchip = microchip;
         this.species = species;
         this.race = race;
         this.size = size;
         this.sex = sex;
         this.picture = picture;
+        this.name = name;
 
 
     }
@@ -153,5 +156,13 @@ public class Pet {
 
     public void addVisit(Visit visit){
         visits.add(visit);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

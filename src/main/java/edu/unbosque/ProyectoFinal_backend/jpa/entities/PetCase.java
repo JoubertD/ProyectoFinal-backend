@@ -2,6 +2,7 @@ package edu.unbosque.ProyectoFinal_backend.jpa.entities;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name="PetCase")
 public class PetCase {
@@ -75,3 +76,4 @@ public class PetCase {
         this.description = description;
     }
 }
+

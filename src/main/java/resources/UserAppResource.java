@@ -49,9 +49,10 @@ public class UserAppResource {
 
         }else if (role.equalsIgnoreCase("vet")) {
             UserAppService u2 = new UserAppService();
-            u2.create(username, password, email, role);
+
 
             if(u2.getUsers(username).equals("")) {
+                u2.create(username, password, email, role);
 //
                 VetService v = new VetService();
                 v.createVet(name, address, neighbourhood, u2.getUser(username, password));

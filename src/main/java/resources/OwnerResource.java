@@ -1,6 +1,5 @@
 package resources;
 
-import edu.unbosque.ProyectoFinal_backend.jpa.Filters.Logged;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.Owner;
 import edu.unbosque.ProyectoFinal_backend.jpa.services.OwnerService;
 import resources.pojos.OwnerPOJO;
@@ -36,18 +35,8 @@ public class OwnerResource {
 
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    //@Logged
 
-    public Response list(@PathParam("username") String username){
-        OwnerService o = new OwnerService();
-        List<OwnerPOJO> owners = o.listOwners();
 
-        return Response.status(Response.Status.OK)
-                .entity(owners)
-                .build();
-    }
 
 
 }

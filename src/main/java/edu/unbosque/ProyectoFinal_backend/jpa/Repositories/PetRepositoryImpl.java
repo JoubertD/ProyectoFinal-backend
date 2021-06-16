@@ -35,10 +35,11 @@ public class PetRepositoryImpl implements PetRepository {
     }
 
     @Override
-    public Optional<Pet> update(int petId, String microchip, String species, String race, String size, String sex, String picture) {
+    public Optional<Pet> update(String username,int petId, String microchip, String species, String race, String size, String sex, String picture, String name) {
 
         try {
             Pet pet = entityManager.find(Pet.class, petId);
+            Owner owner = entityManager.find(Owner.class, username);
             entityManager.getTransaction().begin();
 
             pet.setMicrochip(microchip);
@@ -46,6 +47,9 @@ public class PetRepositoryImpl implements PetRepository {
             pet.setRace(race);
             pet.setSize(size);
             pet.setSex(sex);
+            pet.setPicture(picture);
+            pet.setName(name);
+            pet.setOwner(owner);
             pet.setPicture(picture);
 
             entityManager.getTransaction().commit();

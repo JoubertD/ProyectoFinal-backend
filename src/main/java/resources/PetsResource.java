@@ -22,10 +22,11 @@ public class PetsResource {
                          @QueryParam("specie") String specie,
                          @QueryParam("race") String race,
                          @QueryParam("size") String size,
-                         @QueryParam("sex") String sex) {
+                         @QueryParam("sex") String sex,
+                            @QueryParam("picture") String picture){
 
         PetService ps = new PetService();
-        Optional<PetPOJO> p = ps.createPet( username,microchip, name , specie, race, size, sex);
+        Optional<PetPOJO> p = ps.createPet(username, microchip, specie,  race, size,  sex,  picture,  name );
 
 
         if(p.isPresent()){

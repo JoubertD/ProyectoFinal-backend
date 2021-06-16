@@ -20,8 +20,6 @@ public class OwnerService {
 
     OwnerRepository ownerRepository;
 
-
-
     public Optional<OwnerPOJO> createOwner(String name , String address , String neighbourhood, UserApp user) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -82,4 +80,5 @@ public class OwnerService {
         }
         return ownersPOJO;
     }
+
 }

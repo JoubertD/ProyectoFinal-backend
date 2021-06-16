@@ -6,12 +6,13 @@ import edu.unbosque.ProyectoFinal_backend.jpa.services.CaseService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Random;
 
-@Path("app/owners/{username}/pets/{petId}/case")
+
+
+@Path("app/{username}/owners/pets/{petId}/petCase")
 public class CaseResource {
 
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response create(@PathParam("username") String username, @PathParam("petId") Integer petId,

@@ -2,13 +2,10 @@ package edu.unbosque.ProyectoFinal_backend.jpa.Repositories;
 
 
 
-import edu.unbosque.ProyectoFinal_backend.jpa.entities.Owner;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.Pet;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.PetCase;
 
 import javax.persistence.EntityManager;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
 import java.util.Optional;
 
 public class PetCaseRepositoryImpl implements PetCaseRepository {

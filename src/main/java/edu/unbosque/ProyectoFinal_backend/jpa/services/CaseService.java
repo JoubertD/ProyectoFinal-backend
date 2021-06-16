@@ -2,13 +2,8 @@ package edu.unbosque.ProyectoFinal_backend.jpa.services;
 
 import edu.unbosque.ProyectoFinal_backend.jpa.Repositories.PetCaseRepository;
 import edu.unbosque.ProyectoFinal_backend.jpa.Repositories.PetCaseRepositoryImpl;
-import edu.unbosque.ProyectoFinal_backend.jpa.Repositories.PetRepository;
-import edu.unbosque.ProyectoFinal_backend.jpa.Repositories.PetRepositoryImpl;
-import edu.unbosque.ProyectoFinal_backend.jpa.entities.Pet;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.PetCase;
 import resources.pojos.PetCasePOJO;
-import resources.pojos.PetPOJO;
-import resources.pojos.VisitPOJO;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

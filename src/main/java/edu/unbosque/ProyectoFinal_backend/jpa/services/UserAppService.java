@@ -53,6 +53,7 @@ public class UserAppService {
         userAppRepository = new UserAppRepositoryImpl(entityManager);
         Optional<UserApp> user = userAppRepository.findByUsername(username);
 
+
         entityManager.close();
         entityManagerFactory.close();
 
@@ -60,10 +61,10 @@ public class UserAppService {
         // If success, return the user role
         if (user.isPresent()) {
             return "present";
+        }else {
+
+            return "";
         }
-
-        return "";
-
     }
 
     public UserApp getUser( String username, String password ) {
@@ -84,7 +85,7 @@ public class UserAppService {
 
     }
 
-    public Optional<UserAppPOJO> create( String username, String password, String role , String email ) {
+    public Optional<UserAppPOJO> create( String username, String password, String email,String role  ) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();

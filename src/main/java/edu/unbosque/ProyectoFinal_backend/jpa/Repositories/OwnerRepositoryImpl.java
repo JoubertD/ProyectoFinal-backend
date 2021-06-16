@@ -16,11 +16,6 @@ public class OwnerRepositoryImpl implements OwnerRepository {
         this.entityManager = entityManager;
     }
 
-    public List<Owner> findAllOwners() {
-        return entityManager.createQuery("from Owner").getResultList();
-    }
-
-
     @Override
     public Optional<Owner> save(Owner owner) {
         try {
@@ -33,7 +28,6 @@ public class OwnerRepositoryImpl implements OwnerRepository {
         }
         return Optional.empty();
     }
-
 
     @Override
     public Optional<Owner> update(String username, String address, String neighbourhood) {
@@ -50,4 +44,9 @@ public class OwnerRepositoryImpl implements OwnerRepository {
         }
         return Optional.empty();
     }
+    @Override
+    public List<Owner> findAllOwners() {
+        return entityManager.createQuery("from Owner").getResultList();
+    }
+
 }

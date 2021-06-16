@@ -22,7 +22,7 @@ public class PetService {
 
     PetRepository petRepository;
 
-    public Optional<PetPOJO> createPet(String username,String microchip, String species, String race, String size, String sex, String picture) {
+    public Optional<PetPOJO> createPet(String username,String microchip, String species, String race, String size, String sex, String picture, String name) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -30,7 +30,7 @@ public class PetService {
         petRepository = new PetRepositoryImpl(entityManager);
 
 
-        Optional<Pet> persistedPet = petRepository.save(username,new Pet(microchip, species, race, size, sex, picture));
+        Optional<Pet> persistedPet = petRepository.save(username,new Pet(microchip, species, race, size, sex, picture, name));
 
         entityManager.close();
         entityManagerFactory.close();
@@ -43,14 +43,14 @@ public class PetService {
 
     }
 
-    public Optional<PetPOJO> updatePet(int petId,String microchip, String species, String race, String size, String sex, String picture) {
+    public Optional<PetPOJO> updatePet(String username,int petId, String microchip, String species, String race, String size, String sex, String picture, String name) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petRepository = new PetRepositoryImpl(entityManager);
 
 
-        Optional<Pet> updatedPet = petRepository.update(petId,microchip,  species,  race,  size,  sex,  picture);
+        Optional<Pet> updatedPet = petRepository.update(username,petId,microchip,  species,  race,  size,  sex,  picture,name);
 
         entityManager.close();
         entityManagerFactory.close();

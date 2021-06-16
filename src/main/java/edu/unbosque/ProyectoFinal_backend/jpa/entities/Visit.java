@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 public class Visit {
     @ManyToOne
-    @JoinColumn(name="pet_id",  nullable = false)
+    @JoinColumn(name="username")
     Pet pet;
 
     @ManyToOne
@@ -16,13 +16,10 @@ public class Visit {
     Vet vet;
 
     @Id
-    @GeneratedValue
     @Column(name="visit_id")
-    int visit_id;
-
-
-    @Column(name="created_at", nullable = false)
-    String created_at;
+    int visi_id;
+    @Column(name="create_at")
+    String create_at;
 
     @Column(name="type")
     String type;
@@ -34,60 +31,13 @@ public class Visit {
 
 
 
-    public Visit( String created_at, String type, String description) {
-        this.created_at = created_at;
+    public Visit(int visi_id, String create_at, String type, String description) {
+        this.visi_id = visi_id;
+        this.create_at = create_at;
         this.type = type;
         this.description = description;
     }
 
     public Visit() {
-    }
-
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
-
-    public Vet getVet() {
-        return vet;
-    }
-
-    public void setVet(Vet vet) {
-        this.vet = vet;
-    }
-
-    public int getVisi_id() {
-        return visit_id;
-    }
-
-    public void setVisi_id(int visit_id) {
-        this.visit_id = visit_id;
-    }
-
-    public String getCreate_at() {
-        return created_at;
-    }
-
-    public void setCreate_at(String create_at) {
-        this.created_at = create_at;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }
