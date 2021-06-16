@@ -5,35 +5,19 @@ public class OwnerPOJO {
     private String name;
     private String address;
     private String neighborhood;
-    private String email;
-    private String username;
-    private String password;
 
-    public OwnerPOJO(int person_id, String name, String address, String neighborhood, String email, String username, String password) {
+
+
+    public OwnerPOJO(int person_id, String name, String address, String neighborhood) {
         this.person_id = person_id;
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
-        this.email = email;
-        this.username = username;
-        this.password = password;
+
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public OwnerPOJO() {
     }
@@ -70,11 +54,5 @@ public class OwnerPOJO {
         this.neighborhood = neighborhood;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

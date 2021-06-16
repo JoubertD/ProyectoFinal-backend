@@ -13,6 +13,9 @@ public class PetCasePOJO {
         pet_id = idpet;
     }
 
+    public PetCasePOJO() {
+    }
+
     public String getCreated_ad() {
         return created_ad;
     }

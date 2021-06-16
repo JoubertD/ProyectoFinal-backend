@@ -5,6 +5,7 @@ package edu.unbosque.ProyectoFinal_backend.jpa.Repositories;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.Owner;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class OwnerRepositoryImpl implements OwnerRepository {
@@ -14,6 +15,11 @@ public class OwnerRepositoryImpl implements OwnerRepository {
     public OwnerRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+
+    public List<Owner> findAllOwners() {
+        return entityManager.createQuery("from Owner").getResultList();
+    }
+
 
     @Override
     public Optional<Owner> save(Owner owner) {
@@ -27,6 +33,7 @@ public class OwnerRepositoryImpl implements OwnerRepository {
         }
         return Optional.empty();
     }
+
 
     @Override
     public Optional<Owner> update(String username, String address, String neighbourhood) {

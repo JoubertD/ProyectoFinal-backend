@@ -1,12 +1,15 @@
 package resources;
 
+import edu.unbosque.ProyectoFinal_backend.jpa.Filters.Logged;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.Owner;
 import edu.unbosque.ProyectoFinal_backend.jpa.services.OwnerService;
+import resources.pojos.OwnerPOJO;
 
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Optional;
 
 @Path("app/{username}/owners")
@@ -33,6 +36,18 @@ public class OwnerResource {
 
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Logged
+
+    public Response list(@PathParam("username") String username){
+        OwnerService o = new OwnerService();
+        List<OwnerPOJO> owners = o.listOwners();
+
+        return Response.status(Response.Status.OK)
+                .entity(owners)
+                .build();
+    }
 
 
 }

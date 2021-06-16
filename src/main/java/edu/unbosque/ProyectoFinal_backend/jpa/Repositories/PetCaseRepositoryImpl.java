@@ -7,6 +7,8 @@ import edu.unbosque.ProyectoFinal_backend.jpa.entities.Pet;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.PetCase;
 
 import javax.persistence.EntityManager;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 import java.util.Optional;
 
 public class PetCaseRepositoryImpl implements PetCaseRepository {
@@ -18,13 +20,17 @@ public class PetCaseRepositoryImpl implements PetCaseRepository {
     }
 
     @Override
-    public Optional<PetCase> save(PetCase petCase) {
+    public Optional<PetCase> save(String username, Integer petId, String created_at, String type, String description) {
 
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(petCase);
+            Pet pet = entityManager.find(Pet.class, petId);
+            PetCase Pcase = new PetCase(created_at,type,description);
+            pet.addCase(Pcase);
+            Pcase.setPet(pet);
+            entityManager.persist(Pcase);
             entityManager.getTransaction().commit();
-            return Optional.of(petCase);
+            return Optional.of(Pcase);
         } catch (Exception e) {
             e.printStackTrace();
         }

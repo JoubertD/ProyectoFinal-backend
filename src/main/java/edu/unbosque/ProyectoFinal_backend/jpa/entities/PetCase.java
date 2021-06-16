@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name="PetCase")
 public class PetCase {
     @ManyToOne
-    @JoinColumn(name = "pet_id")
+    @JoinColumn(name = "pet_id", referencedColumnName = "pet_id")
     Pet pet;
 
     @Id
@@ -25,8 +25,7 @@ public class PetCase {
 
 
 
-    public PetCase(int case_id, String created_at, String type, String description) {
-        Case_id = case_id;
+    public PetCase(String created_at, String type, String description) {
         this.created_at = created_at;
         this.type = type;
         this.description = description;
@@ -34,5 +33,45 @@ public class PetCase {
     }
 
     public PetCase() {
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
+    public int getCase_id() {
+        return Case_id;
+    }
+
+    public void setCase_id(int case_id) {
+        Case_id = case_id;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

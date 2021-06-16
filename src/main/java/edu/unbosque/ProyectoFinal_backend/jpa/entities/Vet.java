@@ -77,4 +77,8 @@ public class Vet implements Serializable {
         this.neighborhood = neighborhood;
         this.name = name;
     }
+
+    public void addVisit(Visit visit){
+        visits.add(visit);
+    }
 }

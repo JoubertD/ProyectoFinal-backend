@@ -67,6 +67,10 @@ public class Pet {
 
     }
 
+    public void addCase(PetCase petcase){
+        this.cases.add(petcase);
+    }
+
     public List<PetCase> getCases() {
         return cases;
     }
@@ -145,5 +149,9 @@ public class Pet {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public void addVisit(Visit visit){
+        visits.add(visit);
     }
 }

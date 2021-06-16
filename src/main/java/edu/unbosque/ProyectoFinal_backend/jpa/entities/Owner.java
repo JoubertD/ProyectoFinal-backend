@@ -9,6 +9,8 @@ import java.util.Random;
 @Entity
 @Table(name="Owner")
 @PrimaryKeyJoinColumn
+
+
 public class Owner implements Serializable {
 
 
