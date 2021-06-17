@@ -49,4 +49,7 @@ public class OwnerRepositoryImpl implements OwnerRepository {
         return entityManager.createQuery("from Owner").getResultList();
     }
 
+
+
+
 }

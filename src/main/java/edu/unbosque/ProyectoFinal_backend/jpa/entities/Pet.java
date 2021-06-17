@@ -1,10 +1,17 @@
 package edu.unbosque.ProyectoFinal_backend.jpa.entities;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table(name="Pet")
+@NamedQueries({
+        @NamedQuery(name = "Pet.findAll",
+                query = "SELECT p FROM Pet p"),
+})
 
 public class Pet {
     @OneToMany(mappedBy="pet", cascade = CascadeType.ALL)
@@ -13,7 +20,8 @@ public class Pet {
     @OneToMany(mappedBy="pet", cascade = CascadeType.ALL)
     private List<Visit> visits = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "username", referencedColumnName = "username", nullable = false)
     private Owner owner;
 
@@ -165,4 +173,6 @@ public class Pet {
     public void setName(String name) {
         this.name = name;
     }
+
+
 }

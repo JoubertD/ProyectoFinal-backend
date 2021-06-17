@@ -14,4 +14,6 @@ public interface OwnerRepository {
     Optional<Owner> update(String username, String address, String neighbourhood);
 
     List<Owner> findAllOwners();
+
+
 }

@@ -18,7 +18,7 @@ public class Owner implements Serializable {
     UserApp user;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Pet> pets;
+    private List<Pet> pets = new ArrayList<Pet>();
 
 
     @Column(name="person_id", unique = true)

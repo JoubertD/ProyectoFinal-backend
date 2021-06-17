@@ -6,6 +6,8 @@ import edu.unbosque.ProyectoFinal_backend.jpa.entities.Owner;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.Pet;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class PetRepositoryImpl implements PetRepository {
@@ -16,9 +18,10 @@ public class PetRepositoryImpl implements PetRepository {
         this.entityManager = entityManager;
     }
 
+
     @Override
     public Optional<Pet> save(String username, Pet pet) {
-        Owner o = entityManager.find(Owner.class , username);
+        Owner o = entityManager.find(Owner.class, username);
         try {
             entityManager.getTransaction().begin();
             o.addPet(pet);
@@ -35,7 +38,7 @@ public class PetRepositoryImpl implements PetRepository {
     }
 
     @Override
-    public Optional<Pet> update(String username,int petId, String microchip, String species, String race, String size, String sex, String picture, String name) {
+    public Optional<Pet> update(String username, int petId, String microchip, String species, String race, String size, String sex, String picture, String name) {
 
         try {
             Pet pet = entityManager.find(Pet.class, petId);
@@ -59,6 +62,20 @@ public class PetRepositoryImpl implements PetRepository {
         }
         return Optional.empty();
     }
+
+    @Override
+    public List<Pet> findAllPets() {
+        return entityManager.createQuery("from Pet").getResultList();
+    }
+
+    @Override
+    public List<Pet> findbyUsername(String username) {
+        return entityManager.createQuery(
+                "SELECT c FROM Pet c WHERE c.owner.user.username LIKE :username")
+                .setParameter("username", username)
+                .getResultList();
+    }
+
 
 
 }

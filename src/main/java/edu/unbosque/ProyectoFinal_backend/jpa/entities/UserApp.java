@@ -39,6 +39,19 @@ public class UserApp {
     public UserApp() {
     }
 
+    @Override
+    public String toString() {
+        return "UserApp{" +
+                "vet=" + vet +
+                ", official=" + official +
+                ", owner=" + owner +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
     public Vet getVet() {
         return vet;
     }

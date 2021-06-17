@@ -1,5 +1,6 @@
 package resources;
 
+import edu.unbosque.ProyectoFinal_backend.jpa.entities.Pet;
 import edu.unbosque.ProyectoFinal_backend.jpa.services.PetService;
 import resources.pojos.PetPOJO;
 
@@ -36,6 +37,23 @@ public class PetsResource {
         }
         return Response.status(Response.Status.NOT_FOUND).
                 entity("Owner doesn't exist")
+                .build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list(@PathParam("username") String username){
+
+        PetService ps = new PetService();
+
+            List<PetPOJO> list = ps.listPetsByUsername(username);
+
+
+
+
+
+        return Response.status(Response.Status.OK).
+                entity(list)
                 .build();
     }
 

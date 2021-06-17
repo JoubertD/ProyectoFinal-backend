@@ -6,6 +6,7 @@ import edu.unbosque.ProyectoFinal_backend.jpa.entities.Pet;
 import edu.unbosque.ProyectoFinal_backend.jpa.entities.PetCase;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class PetCaseRepositoryImpl implements PetCaseRepository {
@@ -32,5 +33,14 @@ public class PetCaseRepositoryImpl implements PetCaseRepository {
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<PetCase> findbyPetId(String username) {
+
+        return entityManager.createQuery(
+                "SELECT c FROM PetCase c WHERE c.pet.owner.user.username LIKE :username").
+                setParameter("username", username)
+                .getResultList();
     }
 }

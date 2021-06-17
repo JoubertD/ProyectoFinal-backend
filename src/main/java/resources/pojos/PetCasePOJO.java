@@ -6,11 +6,11 @@ public class PetCasePOJO {
     private String description;
     private String pet_id;
 
-    public PetCasePOJO(String creadoen, String tipo, String descripcion, String idpet){
-        created_ad = creadoen;
-        type = tipo;
-        description = descripcion;
-        pet_id = idpet;
+    public PetCasePOJO(String created_ad, String type, String description, String pet_id) {
+        this.created_ad = created_ad;
+        this.type = type;
+        this.description = description;
+        this.pet_id = pet_id;
     }
 
     public PetCasePOJO() {
